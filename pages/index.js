@@ -25,34 +25,32 @@ export default function Home() {
 
   useEffect(() => {
     if (memory) {
-
-
-      if (memory.ram_usage){
+      if (memory.ram_usage) {
         ramUsage.push(memory.ram_usage);
         setRamUsage(ramUsage.slice(-100));
       }
 
-      if (memory.cpu_usage){
+      if (memory.cpu_usage) {
         cpuUsage.push(memory.cpu_usage);
         setCpuUsage(cpuUsage.slice(-100));
       }
 
-      if (memory.speed){
+      if (memory.speed) {
         speed.push(memory.speed);
         setSpeed(speed.slice(-100));
       }
 
-      if (memory.throttle){
+      if (memory.throttle) {
         throttle.push(memory.throttle);
         setThrottle(throttle.slice(-100));
       }
 
-      if (memory.steering){
+      if (memory.steering) {
         steering.push(memory.steering);
         setSteering(steering.slice(-100));
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [memory]);
 
   return (
@@ -61,6 +59,7 @@ export default function Home() {
         <title>Dashboard</title>
       </Head>
       <div className="grid lg:grid-cols-2 p-2">
+
         <div id="model" className="h-96 p-2">
           <div className="h-full flex flex-col primary">
             <div className="pt-4">
@@ -68,12 +67,15 @@ export default function Home() {
             </div>
 
             <div className="flex-1 min-h-0 w-full">
-              <VictoryChart width={size[0]} height={size[1]} padding={{ top: 5, bottom: 20, left: 10, right: 0 }}>
-                <VictoryAxis dependentAxis tickValues={[-1, -0.5, 0, 0.5, 1]}/>
+              <VictoryChart
+                width={size[0]}
+                height={size[1]}
+                padding={{ top: 5, bottom: 20, left: 10, right: 0 }}
+              >
+                <VictoryAxis dependentAxis tickValues={[-1, -0.5, 0, 0.5, 1]} />
 
                 <VictoryLine
                   domain={{ y: [-1, 1] }}
-                  // interpolation="natural"
                   style={{
                     data: {
                       stroke: "lightgreen",
@@ -86,6 +88,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
         <div className="h-96 p-2">
           <div className="h-full flex flex-col primary">
             <div className="pt-4">
@@ -93,13 +96,18 @@ export default function Home() {
             </div>
 
             <div className="flex-1 min-h-0 w-full">
-              <VictoryChart width={size[0]} height={size[1]} padding={{ top: 5, bottom: 20, left: 10, right: 0 }}>
-                <VictoryAxis dependentAxis tickValues={[0, 0.5, 1]}/>
+              <VictoryChart
+                width={size[0]}
+                height={size[1]}
+                padding={{ top: 5, bottom: 20, left: 10, right: 0 }}
+              >
+                <VictoryAxis
+                  dependentAxis
+                  tickValues={[-1, -0.5, 0, 0.5, 1]}
+                />
 
-                <VictoryArea
-                  domain={{ y: [0, 1] }}
-                  interpolation="natural"
-                  tickFormat={() => ""}
+                <VictoryLine
+                  domain={{ y: [-1, 1] }}
                   style={{
                     data: {
                       // fill: "lightgreen",
@@ -113,17 +121,26 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+
+
+
+
         <div className="h-96 p-2">
           <div className="h-full flex flex-col primary">
             <div className="pt-4">
               <p className="text-black text-center">Speed</p>
             </div>
             <div className="flex-1 min-h-0 w-full">
-              <VictoryChart width={size[0]} height={size[1]} padding={{ top: 5, bottom: 20, left: 10, right: 0 }}>
-                <VictoryAxis dependentAxis tickValues={[0, 0.5, 1, 1.5, 2]}/>
+              <VictoryChart
+                width={size[0]}
+                height={size[1]}
+                padding={{ top: 5, bottom: 20, left: 10, right: 0 }}
+              >
+                <VictoryAxis dependentAxis tickValues={[0, 0.5, 1, 1.5, 2]} />
 
                 <VictoryArea
-                  domain={{ y: [0, 5] }}
+                  domain={{ y: [0, 0.5, 1, 1.5, 2] }}
                   interpolation="natural"
                   tickFormat={() => ""}
                   style={{
@@ -141,16 +158,17 @@ export default function Home() {
         </div>
 
         <div className="h-96 flex flex-col p-2">
-
-        <div className="h-40 flex flex-col flex-1 primary mb-2">
+          <div className="h-40 flex flex-col flex-1 primary mb-2">
             <div className="pt-3">
               <p className="text-black text-center">CPU Usage</p>
             </div>
             <div className="flex-1 min-h-0 w-full">
-              <VictoryChart width={size[0]} height={size[1] / 2.3} 
+              <VictoryChart
+                width={size[0]}
+                height={size[1] / 2.3}
                 padding={{ top: 5, bottom: 20, left: 0, right: 0 }}
               >
-                <VictoryAxis dependentAxis/>
+                <VictoryAxis dependentAxis />
                 <VictoryArea
                   domain={{ y: [0, 100] }}
                   interpolation="natural"
@@ -168,16 +186,17 @@ export default function Home() {
             </div>
           </div>
 
-
           <div className="h-40 flex flex-col flex-1 primary mt-2">
             <div className="pt-3">
               <p className="text-black text-center">RAM Usage</p>
             </div>
             <div className="flex-1 min-h-0 w-full">
-              <VictoryChart width={size[0]} height={size[1] / 2.3} 
+              <VictoryChart
+                width={size[0]}
+                height={size[1] / 2.3}
                 padding={{ top: 5, bottom: 20, left: 0, right: 0 }}
               >
-                <VictoryAxis dependentAxis/>
+                <VictoryAxis dependentAxis />
                 <VictoryArea
                   domain={{ y: [0, 100] }}
                   interpolation="natural"
@@ -194,7 +213,6 @@ export default function Home() {
               </VictoryChart>
             </div>
           </div>
-
         </div>
       </div>
     </>
