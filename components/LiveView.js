@@ -1,6 +1,7 @@
 //@ts-check
 import { useAtom } from "jotai";
 import { memoryAtom, carAtom } from "../utils/atoms";
+// @ts-ignore
 import Ratio from "react-ratio";
 import Skeleton from "@mui/material/Skeleton";
 
@@ -12,6 +13,20 @@ const LiveView = () => {
     var element = document.getElementById("liveview");
     if (element.requestFullscreen) {
       element.requestFullscreen();
+    // @ts-ignore
+    } else if (element.mozRequestFullScreen) {
+      // @ts-ignore
+      element.mozRequestFullScreen();
+    // @ts-ignore
+    } else if (element.webkitRequestFullscreen) {
+      // @ts-ignore
+      element.webkitRequestFullscreen();
+    // @ts-ignore
+    } else if (element.msRequestFullscreen) {
+      // @ts-ignore
+      element.msRequestFullscreen();
+    } else {
+      alert("Fullscreen API is not supported.");
     }
   }
 

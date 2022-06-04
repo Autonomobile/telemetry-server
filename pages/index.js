@@ -25,6 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     if (memory) {
+
       if (memory.ram_usage) {
         ramUsage.push(memory.ram_usage);
         setRamUsage(ramUsage.slice(-100));
@@ -137,10 +138,10 @@ export default function Home() {
                 height={size[1]}
                 padding={{ top: 5, bottom: 20, left: 10, right: 0 }}
               >
-                <VictoryAxis dependentAxis tickValues={[0, 0.5, 1, 1.5, 2]} />
+                <VictoryAxis dependentAxis tickValues={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]} />
 
                 <VictoryArea
-                  domain={{ y: [0, 0.5, 1, 1.5, 2] }}
+                  domain={{ y: [0, 10] }}
                   interpolation="natural"
                   tickFormat={() => ""}
                   style={{
