@@ -48,7 +48,7 @@ In your `settings.json` file of yout autopylot client, change the following line
 ### How to use
 - start the server with `npm run start`
 - open the client in a browser at http://localhost:3000/ or your custom address
-- [start the autopylot client](https://github.com/Autonomobile/AutoPylot#deployt)
+- [start the autopylot client](https://github.com/Autonomobile/AutoPylot#deploy)
 
 > if everything is working, you should see a popup with a message telling you that a new car is connected.
 - select the car with the dropdown menu in the top right corner
