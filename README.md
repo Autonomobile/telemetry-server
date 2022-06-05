@@ -37,7 +37,7 @@ then open http://localhost:3000/
 ## Usage
 
 ### Before starting
-In your `settings.json` file of yout autopylot client, change the following line with the host and port you need.
+In your `settings.json` of your autopylot client, change the following line with the host and port you need.
 ```json
 "SERVER_ADDRESS": "ws://localhost:3000"
 ```
@@ -50,7 +50,7 @@ In your `settings.json` file of yout autopylot client, change the following line
 - open the client in a browser at http://localhost:3000/ or your custom address
 - [start the autopylot client](https://github.com/Autonomobile/AutoPylot#deploy)
 
-> if everything is working, you should see a popup with a message telling you that a new car is connected.
+> if everything goes well, you should see a popup with a message telling you that a new car is connected.
 - select the car with the dropdown menu in the top right corner
 - start tracking !
 
